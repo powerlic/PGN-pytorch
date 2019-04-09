@@ -367,49 +367,49 @@ class PGN(nn.Module):
         self.parsing_pp_conv=PSPModule(512,512)
         self.parsing_fc=nn.Conv2d(512,n_classes,kernel_size=3,bias=True)
 
-        # #edge network
-        # self.edge_branch1=nn.Conv2d(512,256,3,1,1,bias=True)
-        # self.edge_branch2 = nn.Conv2d(1024, 256, 3,1,1, bias=True)
-        # self.edge_branch3 = nn.Conv2d(2048, 256, 3,1,1, bias=True)
-        #
-        # self.edge_branch=nn.Conv2d(768,256,3,1,bias=True)
-        # self.edge_pp_conv=PSPModule(256,512)
-        # self.edge_fc=nn.Conv2d(512,1,3,1,1,bias=True)
-        #
-        # #intermidium supervision
-        # self.fc1_edge_c0_res5 = nn.Conv2d(256, 1, 3, padding=1,bias=True)
-        # self.fc1_edge_c1_res5 = nn.Conv2d(256, 1, 3, padding=2,dilation=2, bias=False)
-        # self.fc1_edge_c2_res5 = nn.Conv2d(256, 1, 3, padding=4,dilation=4, bias=False)
-        # self.fc1_edge_c3_res5 = nn.Conv2d(256, 1, 3, padding=8, dilation=8, bias=False)
-        # self.fc1_edge_c4_res5 = nn.Conv2d(256, 1, 3, padding=16,dilation=16, bias=False)
-        #
-        # self.fc1_edge_c0_res4 = nn.Conv2d(256, 1, 3, padding=1, bias=True)
-        # self.fc1_edge_c1_res4 = nn.Conv2d(256, 1, 3, padding=2, dilation=2, bias=False)
-        # self.fc1_edge_c2_res4 = nn.Conv2d(256, 1, 3, padding=4, dilation=4, bias=False)
-        # self.fc1_edge_c3_res4 = nn.Conv2d(256, 1, 3, padding=8, dilation=8, bias=False)
-        # self.fc1_edge_c4_res4 = nn.Conv2d(256, 1, 3, padding=16, dilation=16, bias=False)
-        #
-        # self.fc1_edge_c0_res3 = nn.Conv2d(256, 1, 3, padding=1,  bias=True)
-        # self.fc1_edge_c1_res3 = nn.Conv2d(256, 1, 3, padding=2, dilation=2, bias=False)
-        # self.fc1_edge_c2_res3 = nn.Conv2d(256, 1, 3, padding=4, dilation=4, bias=False)
-        # self.fc1_edge_c3_res3 = nn.Conv2d(256, 1, 3, padding=8, dilation=8, bias=False)
-        # self.fc1_edge_c4_res3 = nn.Conv2d(256, 1, 3, padding=16, dilation=16, bias=False)
-        #
-        # # refine networks #
-        #
-        # self.parsing_fea = nn.Conv2d(512, 256, 3, bias=True)
-        # self.parsing_remap = nn.Conv2d(20, 128, 1, bias=True)
-        # self.edge_fea = nn.Conv2d(512, 256, 3,1,1,bias=True)
-        # self.edge_remap=nn.Conv2d(1,128,1,1,bias=True)
-        #
-        # self.parsing_rf=nn.Conv2d(768,512,3,1,1,bias=True)
-        # self.parsing_rf_conv=PSPModule(512,256)
-        #
-        # self.parsing_rf_fc=nn.Conv2d(256,n_classes,3,1,bias=True)
-        #
-        # self.edge_rf=nn.Conv2d(768,512,3,1,bias=True)
-        # self.edge_rf_conv=PSPModule(512,512)
-        # self.edge_rf_fc=nn.Conv2d(512,1,3,1,1,bias=True)
+        #edge network
+        self.edge_branch1=nn.Conv2d(512,256,3,1,1,bias=True)
+        self.edge_branch2 = nn.Conv2d(1024, 256, 3,1,1, bias=True)
+        self.edge_branch3 = nn.Conv2d(2048, 256, 3,1,1, bias=True)
+        
+        self.edge_branch=nn.Conv2d(768,256,3,1,bias=True)
+        self.edge_pp_conv=PSPModule(256,512)
+        self.edge_fc=nn.Conv2d(512,1,3,1,1,bias=True)
+        
+        #intermidium supervision
+        self.fc1_edge_c0_res5 = nn.Conv2d(256, 1, 3, padding=1,bias=True)
+        self.fc1_edge_c1_res5 = nn.Conv2d(256, 1, 3, padding=2,dilation=2, bias=False)
+        self.fc1_edge_c2_res5 = nn.Conv2d(256, 1, 3, padding=4,dilation=4, bias=False)
+        self.fc1_edge_c3_res5 = nn.Conv2d(256, 1, 3, padding=8, dilation=8, bias=False)
+        self.fc1_edge_c4_res5 = nn.Conv2d(256, 1, 3, padding=16,dilation=16, bias=False)
+        
+        self.fc1_edge_c0_res4 = nn.Conv2d(256, 1, 3, padding=1, bias=True)
+        self.fc1_edge_c1_res4 = nn.Conv2d(256, 1, 3, padding=2, dilation=2, bias=False)
+        self.fc1_edge_c2_res4 = nn.Conv2d(256, 1, 3, padding=4, dilation=4, bias=False)
+        self.fc1_edge_c3_res4 = nn.Conv2d(256, 1, 3, padding=8, dilation=8, bias=False)
+        self.fc1_edge_c4_res4 = nn.Conv2d(256, 1, 3, padding=16, dilation=16, bias=False)
+        
+        self.fc1_edge_c0_res3 = nn.Conv2d(256, 1, 3, padding=1,  bias=True)
+        self.fc1_edge_c1_res3 = nn.Conv2d(256, 1, 3, padding=2, dilation=2, bias=False)
+        self.fc1_edge_c2_res3 = nn.Conv2d(256, 1, 3, padding=4, dilation=4, bias=False)
+        self.fc1_edge_c3_res3 = nn.Conv2d(256, 1, 3, padding=8, dilation=8, bias=False)
+        self.fc1_edge_c4_res3 = nn.Conv2d(256, 1, 3, padding=16, dilation=16, bias=False)
+        
+        # refine networks #
+        
+        self.parsing_fea = nn.Conv2d(512, 256, 3, bias=True)
+        self.parsing_remap = nn.Conv2d(20, 128, 1, bias=True)
+        self.edge_fea = nn.Conv2d(512, 256, 3,1,1,bias=True)
+        self.edge_remap=nn.Conv2d(1,128,1,1,bias=True)
+        
+        self.parsing_rf=nn.Conv2d(768,512,3,1,1,bias=True)
+        self.parsing_rf_conv=PSPModule(512,256)
+        
+        self.parsing_rf_fc=nn.Conv2d(256,n_classes,3,1,bias=True)
+        
+        self.edge_rf=nn.Conv2d(768,512,3,1,bias=True)
+        self.edge_rf_conv=PSPModule(512,512)
+        self.edge_rf_fc=nn.Conv2d(512,1,3,1,1,bias=True)
 
     def forward(self, input_data):
         pool1=self.pool1(input_data)
